@@ -61,8 +61,12 @@ const grid = document.querySelector('#grid')
 
 //function to create an element for each object in the array
 function createBoard () {
-    for (let i = 0; i < 10; i++) {
-        const card = document.createElement('img')
+    for (let i = 0; i < cardArray.length; i++) {
+        const card = document.createElement('img')//create img element 
+        card.setAttribute('src', 'images/blank.png')
+        card.setAttribute('data-id', i)
+        console.log(card, i)
+        grid.append(card)
     }
-
 }
+createBoard()
