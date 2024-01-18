@@ -57,4 +57,12 @@ cardArray.sort(() => 0.5 - Math.random())//nice adv short cut to shuffle an arra
 //console.log(cardArray)
 
 const grid = document.querySelector('#grid')
-console.log(grid)
+//console.log(grid)
+
+//function to create an element for each object in the array
+function createBoard () {
+    for (let i = 0; i < 10; i++) {
+        const card = document.createElement('img')
+    }
+
+}
