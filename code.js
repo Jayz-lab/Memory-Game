@@ -54,3 +54,7 @@ const cardArray = [
 //.sort() method compares 2 values and sorts through them
 //checks if the array is >0.5 or <0.5
 cardArray.sort(() => 0.5 - Math.random())//nice adv short cut to shuffle an array randomly
+//console.log(cardArray)
+
+const grid = document.querySelector('#grid')
+console.log(grid)
