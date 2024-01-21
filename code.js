@@ -1,3 +1,6 @@
+//Event Listener for DOMContentLoaded:
+//This code ensures that the rest of the script runs only after the HTML document has been completely loaded.
+document.addEventListener('DOMContentLoaded', () => {
 //list all card options: create an array of objects of 12 card images
 const cardArray = [
     {
@@ -109,8 +112,10 @@ function checkForMatch() {
       resultDisplay.textContent = 'Congratulations! You found them all!'
     }
   }
-  
+
   //flip your card: This function is called when a card is clicked.
+  //It updates the state arrays (cardsChosen and cardsChosenId), 
+  //changes the card image to reveal the actual image, and triggers the matching logic after a short delay.
   function flipCard() {
     let cardId = this.getAttribute('data-id')
     cardsChosen.push(cardArray[cardId].name)
@@ -122,3 +127,5 @@ function checkForMatch() {
   }
 
   createBoard()
+
+})
