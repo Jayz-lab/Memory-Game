@@ -1,6 +1,7 @@
 //Event Listener for DOMContentLoaded:
 //This code ensures that the rest of the script runs only after the HTML document has been completely loaded.
 document.addEventListener('DOMContentLoaded', () => {
+    
 //list all card options: create an array of objects of 12 card images
 const cardArray = [
     {
