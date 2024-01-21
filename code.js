@@ -59,7 +59,7 @@ cardArray.sort(() => 0.5 - Math.random())//nice adv short cut to shuffle an arra
 const grid = document.querySelector('#grid')
 //console.log(grid)
 
-//function to create an element for each object in the array
+//Create Game Board: function to create an element for each object in the array
 function createBoard () {
     for (let i = 0; i < cardArray.length; i++) {
         const card = document.createElement('img')//create img element 
@@ -70,3 +70,16 @@ function createBoard () {
     }
 }
 createBoard()
+
+  //flip your card: This function is called when a card is clicked.
+  function flipCard() {
+    let cardId = this.getAttribute('data-id')
+    cardsChosen.push(cardArray[cardId].name)
+    cardsChosenId.push(cardId)
+    this.setAttribute('src', cardArray[cardId].img)
+    if (cardsChosen.length ===2) {
+      setTimeout(checkForMatch, 500)
+    }
+  }
+
+  createBoard()
