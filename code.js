@@ -58,6 +58,7 @@ cardArray.sort(() => 0.5 - Math.random())//nice adv short cut to shuffle an arra
 
 const grid = document.querySelector('#grid')
 //console.log(grid)
+
 //Arrays to Track Game State: These arrays are used to store the names and IDs of the cards that the player has chosen and the cards that have been matched.
 const resultDisplay = document.querySelector('#result')
   let cardsChosen = []
@@ -77,6 +78,38 @@ function createBoard () {
 
 createBoard()
 
+//check for matches: This function is called when the player has chosen two cards. 
+//It checks if the two selected cards match or not, updates the display accordingly, and manages game logic.
+function checkForMatch() {
+    const cards = document.querySelectorAll('img')
+    const optionOneId = cardsChosenId[0]
+    const optionTwoId = cardsChosenId[1]
+    
+    if(optionOneId == optionTwoId) {
+      cards[optionOneId].setAttribute('src', 'images/blank.png')
+      cards[optionTwoId].setAttribute('src', 'images/blank.png')
+      alert('You have clicked the same image!')
+    }
+    else if (cardsChosen[0] === cardsChosen[1]) {
+      alert('You found a match')
+      cards[optionOneId].setAttribute('src', 'images/white.png')
+      cards[optionTwoId].setAttribute('src', 'images/white.png')
+      cards[optionOneId].removeEventListener('click', flipCard)
+      cards[optionTwoId].removeEventListener('click', flipCard)
+      cardsWon.push(cardsChosen)
+    } else {
+      cards[optionOneId].setAttribute('src', 'images/blank.png')
+      cards[optionTwoId].setAttribute('src', 'images/blank.png')
+      alert('Sorry, try again')
+    }
+    cardsChosen = []
+    cardsChosenId = []
+    resultDisplay.textContent = cardsWon.length
+    if  (cardsWon.length === cardArray.length/2) {
+      resultDisplay.textContent = 'Congratulations! You found them all!'
+    }
+  }
+  
   //flip your card: This function is called when a card is clicked.
   function flipCard() {
     let cardId = this.getAttribute('data-id')
