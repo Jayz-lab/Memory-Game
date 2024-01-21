@@ -1,4 +1,4 @@
-//create an array of objects of 12 card images
+//list all card options: create an array of objects of 12 card images
 const cardArray = [
     {
         name: 'fries',
@@ -58,6 +58,11 @@ cardArray.sort(() => 0.5 - Math.random())//nice adv short cut to shuffle an arra
 
 const grid = document.querySelector('#grid')
 //console.log(grid)
+//Arrays to Track Game State: These arrays are used to store the names and IDs of the cards that the player has chosen and the cards that have been matched.
+const resultDisplay = document.querySelector('#result')
+  let cardsChosen = []
+  let cardsChosenId = []
+  let cardsWon = []
 
 //Create Game Board: function to create an element for each object in the array
 function createBoard () {
@@ -69,6 +74,7 @@ function createBoard () {
         grid.append(card)
     }
 }
+
 createBoard()
 
   //flip your card: This function is called when a card is clicked.
